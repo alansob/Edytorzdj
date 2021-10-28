@@ -28,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
         imgBtn2 = (ImageButton) findViewById(R.id.previous);
         imgBtn3 = (ImageButton) findViewById(R.id.camera);
         imgBtn4 = (ImageButton) findViewById(R.id.clear);
+        imgView = (ImageView) findViewById(R.id.imageView);
 
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(checkbox.isChecked()){
-                    Toast.makeText(getApplicationContext(), "Checked", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Checked", Toast.LENGTH_LONG).show();
 
                     imgView.setVisibility(view.INVISIBLE);
                 }else{
@@ -41,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        imgBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgView.setImageResource(R.drawable.image1);
+            }
+        });
 
+        imgBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgView.setImageResource(R.drawable.image2);
+            }
+        });
     }
 }
