@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Edytor zdjec</string>
+    <string name="CheckBox">Disabled</string>
 </resources>

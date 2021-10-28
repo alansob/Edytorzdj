@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     ImageButton imgBtn2;
     ImageButton imgBtn3;
     ImageButton imgBtn4;
+    private int currentPicture;
+    int[] images = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4};
+    int[] images2 = {R.drawable.image4, R.drawable.image3, R.drawable.image2, R.drawable.image1};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         imgBtn3 = (ImageButton) findViewById(R.id.camera);
         imgBtn4 = (ImageButton) findViewById(R.id.clear);
         imgView = (ImageView) findViewById(R.id.imageView);
+
+        // int picture = 0;
+       // int currentPicture = 0;
 
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,14 +51,34 @@ public class MainActivity extends AppCompatActivity {
         imgBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imgView.setImageResource(R.drawable.image1);
+                currentPicture++;
+                currentPicture = currentPicture % images.length;
+                imgView.setImageResource(images[currentPicture]);
+
+              /*  int picture = 0;
+                int currentPicture = 0;
+
+                if(currentPicture == 0){
+                    imgView.setImageResource(R.drawable.image2);
+                }
+                if(currentPicture == 1){
+                    imgView.setImageResource(R.drawable.image3);
+                }
+                if(currentPicture == 2){
+                    imgView.setImageResource(R.drawable.image4);
+                }
+                if(currentPicture == 3){
+                    imgView.setImageResource(R.drawable.image1);
+                }*/
             }
         });
 
         imgBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imgView.setImageResource(R.drawable.image2);
+                currentPicture++;
+                currentPicture =  currentPicture % images2.length;
+                imgView.setImageResource(images2[currentPicture]);
             }
         });
     }
