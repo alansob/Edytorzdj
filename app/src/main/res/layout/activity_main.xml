@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/next"
         android:layout_width="85dp"
         android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/camera"
         android:layout_width="85dp"
         android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +45,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/clear"
         android:layout_width="85dp"
         android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +58,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/previous"
         android:layout_width="85dp"
         android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
