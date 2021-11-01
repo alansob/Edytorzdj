@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    //variables
+
     CheckBox checkbox;
     ImageView imgView;
     ImageButton imgBtn1;
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         rotateText = (EditText) findViewById(R.id.rotate);
         scaleText = (EditText) findViewById(R.id.scale);
 
+        //camera
+
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{
@@ -58,8 +62,7 @@ public class MainActivity extends AppCompatActivity {
             },100);
         }
 
-        // int picture = 0;
-       // int currentPicture = 0;
+        //checbox
 
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,30 +76,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //next button
+
         imgBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 currentPicture++;
                 currentPicture = currentPicture % images.length;
                 imgView.setImageResource(images[currentPicture]);
-
-              /*  int picture = 0;
-                int currentPicture = 0;
-
-                if(currentPicture == 0){
-                    imgView.setImageResource(R.drawable.image2);
-                }
-                if(currentPicture == 1){
-                    imgView.setImageResource(R.drawable.image3);
-                }
-                if(currentPicture == 2){
-                    imgView.setImageResource(R.drawable.image4);
-                }
-                if(currentPicture == 3){
-                    imgView.setImageResource(R.drawable.image1);
-                }*/
             }
         });
+
+        //previous button
 
         imgBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //camera button
+
         imgBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //set rotate
+
         setRotate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,7 +118,21 @@ public class MainActivity extends AppCompatActivity {
                     imgView.setRotation(x);
             }
         });
+
+        //set scale
+
+        setScale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x = Integer.parseInt(scaleText.getText().toString());
+                int y = Integer.parseInt(scaleText.getText().toString());
+                imgView.setScaleX(x);
+                imgView.setScaleY(y);
+            }
+        });
     }
+
+    //end camera
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
