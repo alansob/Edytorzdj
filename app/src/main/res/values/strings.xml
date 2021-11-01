@@ -3,4 +3,6 @@
     <string name="CheckBox">Disabled</string>
     <string name="Button">Set rotate</string>
     <string name="Button2">Set scale</string>
+    <string name="EditText">0</string>
+    <string name="EditText2">0</string>
 </resources>

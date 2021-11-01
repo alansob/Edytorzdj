@@ -12,7 +12,9 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     ImageButton imgBtn2;
     ImageButton imgBtn3;
     ImageButton imgBtn4;
+    Button setRotate;
+    Button setScale;
+    EditText rotateText;
+    EditText scaleText;
     private int currentPicture;
     int[] images = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4};
     int[] images2 = {R.drawable.image4, R.drawable.image3, R.drawable.image2, R.drawable.image1};
@@ -40,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
         imgBtn3 = (ImageButton) findViewById(R.id.camera);
         imgBtn4 = (ImageButton) findViewById(R.id.clear);
         imgView = (ImageView) findViewById(R.id.imageView);
+        setRotate = (Button) findViewById(R.id.set_rotate);
+        setScale = (Button) findViewById(R.id.set_scale);
+        rotateText = (EditText) findViewById(R.id.rotate);
+        scaleText = (EditText) findViewById(R.id.scale);
 
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED){
@@ -102,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 100);
+            }
+        });
+
+        setRotate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x = Integer.parseInt(rotateText.getText().toString());
+                    imgView.setRotation(x);
             }
         });
     }
