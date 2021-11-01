@@ -109,6 +109,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //clear button
+
+        imgBtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgView.setImageResource(0);
+            }
+        });
+
         //set rotate
 
         setRotate.setOnClickListener(new View.OnClickListener() {
